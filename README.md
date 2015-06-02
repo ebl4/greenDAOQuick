@@ -1,6 +1,6 @@
 # greenDAOQuick
 ========
-greenDAO is a light & fast ORM solution for Android that maps objects to SQLite databases. Being highly optimized for Android, greenDAO offers great performance and consumes minimal memory.
+GreenDAO is a light & fast ORM solution for Android that maps objects to SQLite databases. Being highly optimized for Android, greenDAO offers great performance and consumes minimal memory.
 
 **<font size="+1">Home page, documentation, and support links: http://greendao-orm.com/</font>**
 
@@ -11,8 +11,8 @@ How to get started
 This tutorial will walk you through an simple greenDAO example project. It is available on https://github.com/greenrobot/greenDAO and consists of two subprojects (folders): DaoExample and DaoExampleGenerator. You can either clone the git repository to get the code and run it, or just view view the files directly on github.
 ### Pre-generated code and creating the table
 Now, let’s look at some code. In the folder src-gen, you’ll find some already generated artifacts:
-1) Note.java is a Java class containing all data a note has
-2) NoteDao.java is the DAO class, your interface to work with Note objects
+* 1) Note.java is a Java class containing all data a note has
+* 2) NoteDao.java is the DAO class, your interface to work with Note objects
 
 You can always generate Note and NoteDao again using the DaoExampleGenerator project. But let’s stick to DaoExample for a minute. Using the DaoMaster class you can aquire a convenience SQLiteOpenHelper:
 
@@ -22,8 +22,8 @@ new DaoMaster.DevOpenHelper(this, "notes-db", null)
 
 As you notice, you do not have to code “CREATE TABLE” SQL scripts. greenDAO does that for you.
 
-Inserting and deleting notes
-==============================
+###Inserting and deleting notes
+
 So once we have a table for our notes, we can put in some notes in the database. This is done in the NoteActivity class. In the onCreate method we prepare a DAO object:
 
 ```java
@@ -40,6 +40,8 @@ noteDao.insert(note);
 Log.d("DaoExample", "Inserted new note, ID: " + note.getId());
 ```
 
+![image1](https://raw.github.com/ebl4/greenDAOQuick/master/DaoExample/res/drawable-hdpi/to/11289655_857346854356273_2059547205_n.jpg)
+
 Just create a Java object and call insert on the DAO. When the insert method returns, the database id of the just inserted note is already assigned to the object, as you can see in the log statment.
 
 Deleting a note is also straight forward; have a look at the onListItemClick method:
@@ -50,8 +52,8 @@ noteDao.deleteByKey(id);
 
 If you want, you can explore other DAO methods like loadAll and update.
 
-Data model and code generation
----------------
+### Data model and code generation
+
 In order to extend the note or to create new entities, you should have a look at the DaoExampleGenerator project. It contains a single class containing the data model definition in code:
 
 ```java
